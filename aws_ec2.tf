@@ -1,7 +1,7 @@
 #----------------------------------------
 # AMI
 #----------------------------------------
-data "aws_ami" "AMI_for_cmcn" {
+data "aws_ami" "AMI_for_deepia" {
   most_recent = true
   owners      = ["amazon"]
 
@@ -38,34 +38,34 @@ data "aws_ami" "AMI_for_cmcn" {
 #----------------------------------------
 # EC2 instance
 #----------------------------------------
-resource "aws_instance" "Instance_for_cmcn" {
-  ami                    = data.aws_ami.AMI_for_cmcn.image_id
+resource "aws_instance" "Instance_for_deepia" {
+  ami                    = data.aws_ami.AMI_for_deepia.image_id
   instance_type          = "t2.small"
-  subnet_id              = aws_subnet.Subnet_for_cmcn.id
-  key_name               = aws_key_pair.cmcn_ec2.id
-  vpc_security_group_ids = [aws_security_group.SecurityGroup_for_cmcn.id]
+  subnet_id              = aws_subnet.Subnet_for_deepia.id
+  key_name               = aws_key_pair.deepia_ec2.id
+  vpc_security_group_ids = [aws_security_group.SecurityGroup_for_deepia.id]
 
   tags = {
-    Name = "cmcn-instance"
+    Name = "deepia-instance"
   }
 }
 
 #----------------------------------------
 # ElasticIpP
 #----------------------------------------
-resource "aws_eip" "Eip_for_cmcn" {
-  instance = aws_instance.Instance_for_cmcn.id
+resource "aws_eip" "Eip_for_deepia" {
+  instance = aws_instance.Instance_for_deepia.id
   vpc      = true
 
   tags = {
-    Name = "ElasticIP_for_cmcn"
+    Name = "ElasticIP_for_deepia"
   }
 }
 
 #----------------------------------------
 # Keypair
 #----------------------------------------
-resource "aws_key_pair" "cmcn_ec2" {
-  key_name   = "cmcn_ec2"
-  public_key = file("./cmcn_ec2.pub")
+resource "aws_key_pair" "deepia_ec2" {
+  key_name   = "deepia_ec2"
+  public_key = file("./deepia_ec2.pub")
 }

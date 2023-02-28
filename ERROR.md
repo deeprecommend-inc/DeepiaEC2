@@ -22,12 +22,12 @@
 - 該当のソースコード
 
 ```hcl
-resource "aws_instance" "Instance_for_cmcn" {
-  ami                    = data.aws_ami.AMI_for_cmcn.image_id
+resource "aws_instance" "Instance_for_deepia" {
+  ami                    = data.aws_ami.AMI_for_deepia.image_id
   instance_type          = "t2.small"
-  subnet_id              = aws_subnet.Subnet_for_cmcn.id
-  key_name               = aws_key_pair.cmcn_ec2.id
-  vpc_security_group_ids = [aws_security_group.SecurityGroup_for_cmcn.id]
+  subnet_id              = aws_subnet.Subnet_for_deepia.id
+  key_name               = aws_key_pair.deepia_ec2.id
+  vpc_security_group_ids = [aws_security_group.SecurityGroup_for_deepia.id]
 
   user_data = <<EOF
   #! /bin/bash
@@ -40,7 +40,7 @@ resource "aws_instance" "Instance_for_cmcn" {
   EOF
 
   tags = {
-    Name = "cmcn-instance"
+    Name = "deepia-instance"
   }
 }
 ```

@@ -5,13 +5,13 @@
 - permission
 
 ```sh
-$ chmod 400 cmcn_ec2
+$ chmod 400 deepia_ec2
 ```
 
 - ssh
 
 ```sh
-$ ssh -i cmcn_ec2 ec2-user@52.196.143.137
+$ ssh -i deepia_ec2 ec2-user@52.196.143.137
 ```
 
 - EC2 volume
@@ -25,7 +25,7 @@ $ df -hT /dev/xvda1
 - Git close
 
 ```
-$ git clone git@github.com:deep-recommend-sugimoto/CmCnApi.git
+$ git clone git@github.com:deep-recommend/DeepiaApi.git
 ```
 
 - Install packages
@@ -54,7 +54,7 @@ $ docker-compose -f docker-compose.prod.yml up --build -d
 
 ## API URL (SSH)
 
-git@github.com:deep-recommend-sugimoto/CmCnApi.git
+git@github.com:deep-recommend/DeepiaApi.git
 
 ## Update Elastic IP
 
@@ -137,4 +137,5 @@ $ sudo yum install git
 $ curl --silent --location https://rpm.nodesource.com/setup_12.x | sudo bash
 $ sudo yum install -y nodejs
 ```
+
 # DeepiaEC2
