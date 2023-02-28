@@ -40,7 +40,7 @@ data "aws_ami" "AMI_for_deepia" {
 #----------------------------------------
 resource "aws_instance" "Instance_for_deepia" {
   ami                    = data.aws_ami.AMI_for_deepia.image_id
-  instance_type          = "t2.small"
+  instance_type          = "t2.micro"
   subnet_id              = aws_subnet.Subnet_for_deepia.id
   key_name               = aws_key_pair.deepia_ec2.id
   vpc_security_group_ids = [aws_security_group.SecurityGroup_for_deepia.id]
