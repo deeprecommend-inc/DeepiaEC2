@@ -11,7 +11,7 @@ $ chmod 400 deepia_ec2
 - ssh
 
 ```sh
-$ ssh -i ./deepia_ec2 ec2-user@52.196.143.137
+$ ssh -i ./deepia_ec2 ec2-user@3.112.118.100
 ```
 
 - EC2 volume
