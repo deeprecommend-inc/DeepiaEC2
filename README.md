@@ -52,6 +52,12 @@ $ sudo ./init-letsencrypt.sh
 $ docker-compose -f docker-compose.prod.yml up --build -d
 ```
 
+- Down docker container
+
+```sh
+$ docker-compose -f docker-compose.prod.yml down
+```
+
 ## API URL (SSH)
 
 git@github.com:deep-recommend/DeepiaApi.git
