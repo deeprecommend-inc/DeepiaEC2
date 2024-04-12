@@ -44,3 +44,11 @@ resource "aws_instance" "Instance_for_deepia" {
   }
 }
 ```
+
+## 3. SSL が認証されない
+
+```sh
+sudo ./init-letsencrypt
+docker-compose -f ./docker-compose.prod.yml up --build -d
+docker-compose -f docker-compose.prod.yml exec deepia-web-server nginx -s reload
+```
